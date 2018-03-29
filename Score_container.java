@@ -50,4 +50,11 @@ public class Score_container extends Movable_Package implements Score {
 		this.setScore(this.getScore() + x);
 	}
 
+	@Override
+	public int doType() {
+		return 0;
+		// TODO Auto-generated method stub
+		
+	}
+
 }

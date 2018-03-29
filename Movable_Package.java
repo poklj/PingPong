@@ -12,6 +12,7 @@ public abstract class Movable_Package extends Thread implements Movable {
 	private int Size_X;
 	private int Size_Y;
 	private int Side; // 0 for top; 1 for bottom
+	private String Type;
 	
 	public Movable_Package() {
 		Vel_Y = 0;
@@ -32,17 +33,18 @@ public abstract class Movable_Package extends Thread implements Movable {
 	@Override
 	public void check_if_collision(Movable Collider) {
 		//TODO: Make a proper collision detection
-			if (Collider.getVel_X() + Collider.getX() >= this.X 
-					&& Collider.getVel_X() + Collider.getX() <= this.X + this.Size_X 
-					&& Collider.getVel_Y() + Collider.getY() >= this.Y 
-					&& Collider.getVel_Y() + Collider.getY() <= this.Y + this.Size_Y
-					)
+			if (Collider.getX() >= this.X 
+					&& Collider.getX() <= this.X + this.Size_X 
+					&& Collider.getY() >= this.Y 
+					&& Collider.getY() <= this.Y + this.Size_Y)
 			{
 				Collider.doCollision();
 				System.out.println("COLLIDE");
 			}
 
 	}
+	
+	public abstract int doType();
 
 	/**
 	 * get Y Velocity
@@ -143,5 +145,12 @@ public abstract class Movable_Package extends Thread implements Movable {
 	public void setSize_X(int size_X) {
 		Size_X = size_X;
 	}
+	public String getType() {
+		return Type;
+	}
+	public void setType(String type) {
+		Type = type;
+	}
+
 
 }

@@ -15,9 +15,16 @@ public class Main {
 		
 		ArrayList<Movable_Package> MoveableList = new ArrayList<Movable_Package>();
 		ArrayList<Paddle> PlayerList = new ArrayList<Paddle>();
+		ArrayList<Score> ScoreList = new ArrayList<Score>();
 		Paddle p1 = new Paddle(190, 10, 120, 20, java.awt.Color.RED, 1);
 		Paddle p2 = new Paddle(190, 730, 120, 20,java.awt.Color.BLUE, 2);
 		Ball b1 = new Ball();
+		Score_container s1 = new Score_container(20,300);
+		s1.setPlayer(1);
+		Score_container s2 = new Score_container(500, 300);
+		s2.setPlayer(2);
+		ScoreList.add(s1);
+		ScoreList.add(s2);
 		MoveableList.add(p1);
 		MoveableList.add(p2);
 		MoveableList.add(b1);
@@ -29,7 +36,7 @@ public class Main {
         frame.setSize(600,800);
         frame.setResizable(false); //Prevent Resize
         frame.setVisible(true);
-        DrawHere d = new DrawHere(MoveableList, PlayerList);
+        DrawHere d = new DrawHere(MoveableList, PlayerList, ScoreList);
         frame.setContentPane(d);
        
        

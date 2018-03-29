@@ -23,12 +23,12 @@ import java.util.Arrays;
 	Graphics2D g2d;
 	java.util.ArrayList<Movable_Package> Movables = new java.util.ArrayList<Movable_Package>();
 	java.util.ArrayList<Paddle> players = new java.util.ArrayList<Paddle>();
-	
+	java.util.ArrayList<Score> score = new java.util.ArrayList<Score>();
 	// [false, false ,false, false]
 	// Player 1 left, right | Player 2 left, right
 	boolean[] keyArray = new boolean[4];
 	//Paddle p2 = new Paddle(1, 1);
-	public DrawHere(ArrayList<Movable_Package> moveableList, ArrayList<Paddle> PlayerList) {//ArrayList<Projectile> projectiles) {
+	public DrawHere(ArrayList<Movable_Package> moveableList, ArrayList<Paddle> PlayerList, ArrayList<Score> scoreList) {//ArrayList<Projectile> projectiles) {
  
 		// Set up cat, start the thread
 //		for (Projectile object : projectiles) {
@@ -40,6 +40,9 @@ import java.util.Arrays;
 		
 		for (Paddle object : PlayerList) {
 			this.players.add(object);
+		}
+		for (Score object : scoreList) {
+			this.score.add(object);
 		}
 		for (Movable_Package object : moveableList) {
 			object.start();
@@ -67,7 +70,7 @@ import java.util.Arrays;
 	 */
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
-		System.out.println(key);
+		System.out.println("p"+key);
 		
 		
 		//d 
@@ -96,7 +99,7 @@ import java.util.Arrays;
 	@Override
 	public void keyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
-		
+		System.out.println("r"+key);
 		if (key == 68) {
 			this.keyArray[1] = Boolean.FALSE;
 		}
@@ -134,15 +137,23 @@ import java.util.Arrays;
 		// c2.Paint(g2d);
 		//p2.paint(g2d);
 		
-		for (Movable_Package object : this.Movables) {
-			object.paint(g2d);
-			for (Movable_Package coli : this.Movables) {
-				if (!object.equals(coli)) {
-					object.check_if_collision(coli);
-				}
-				
-			}
-		}
+	    for (Movable_Package object : this.Movables) {
+            object.paint(g2d);
+            for (Movable_Package coli : this.Movables) {
+                if (!object.equals(coli)) {
+                    object.check_if_collision(coli);
+                    
+                }
+                
+            }
+            if (object.getType() == "ball") {
+            	if (object.doType() != 0) {
+            		if (object.doType() == 1) {
+            			
+            		}
+            	}
+            }
+        }
 
 		// Set the buffer to be visible
 		Graphics2D g2dComponent = (Graphics2D) g;
@@ -183,6 +194,7 @@ import java.util.Arrays;
 	public void actionPerformed(ActionEvent e) {
 		this.repaint();
 		this.playerHandle();
+		
 		
 
 		//Take focus if we don't have it

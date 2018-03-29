@@ -95,4 +95,12 @@ public class Paddle extends Movable_Package implements Player {
 	public void doCollision() {
 
 	}
+
+
+	@Override
+	public int doType() {
+		return 0;
+		// TODO Auto-generated method stub
+		
+	}
 }
