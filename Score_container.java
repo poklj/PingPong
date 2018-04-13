@@ -40,7 +40,6 @@ public class Score_container extends Movable_Package implements Score {
 
 	@Override
 	public void paint(Graphics2D g2d) {
-		
 		g2d.drawString(Integer.toString(Score), this.getX(), this.getY());
 		
 	}

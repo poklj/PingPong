@@ -28,6 +28,8 @@ public class Main {
 		MoveableList.add(p1);
 		MoveableList.add(p2);
 		MoveableList.add(b1);
+		MoveableList.add(s1);
+		MoveableList.add(s2);
 	
 		PlayerList.add(p1);
 		PlayerList.add(p2);

@@ -13,4 +13,6 @@ public interface Score {
 	public void setScore(int x);
 	
 	public void setPlayer(int x);
+	
+	public abstract void paint(Graphics2D g2d);
 }

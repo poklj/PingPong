@@ -146,10 +146,20 @@ import java.util.Arrays;
                 }
                 
             }
-            if (object.getType() == "ball") {
-            	if (object.doType() != 0) {
-            		if (object.doType() == 1) {
-            			
+            if (object.getType() == "Ball") {
+            	int resul = object.doType();
+            	if (resul != 0) {
+            		if (resul == 1) {
+            			if (score.get(0).getPlayer() == 1) {
+            				score.get(0).IncrementScore(1);
+            				System.out.println(score.get(0).getScore());
+            			}
+            		}
+            		if (resul == 2) {
+            			if (score.get(1).getPlayer() == 2) {
+            				score.get(1).IncrementScore(1);
+            				System.out.println(score.get(1).getScore());
+            			}
             		}
             	}
             }

@@ -81,6 +81,7 @@ public class Ball extends Movable_Package {
 			this.setX(300);
 			this.setY(300);
 			this.randomDirection();
+			System.out.print(PlayerSide);
 			return PlayerSide;
 		} else {
 			return 0;
